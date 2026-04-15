@@ -9,44 +9,61 @@ import { SITE } from "../config/site.mjs";
 
 <Layout
   title={`Contact | Protech`}
-  description="Contactez-nous ! Nous serions ravi·es d’échanger avec vous sur Protech, nos ateliers, compétitions ou tout autre question."
+  description="Contactez-nous ! Nous serions ravi·es d'échanger avec vous sur Protech, nos ateliers, compétitions ou tout autre question."
   canonicalURL={`${SITE.url}/contact`}
 >
   <Header />
   <main id="main-content" role="main">
     <section class="max-w-2xl mx-auto px-4 py-20">
+
       <ScrollReveal client:idle>
-        <h1 class="text-5xl font-bold text-gray-900 mb-4">Contact</h1>
+        <p class="text-shell-muted text-sm mb-2">
+          <span class="text-shell-green">visitor@protech</span>:<span class="text-shell-blue">~</span>$ ./contact.sh
+        </p>
+        <h1 class="text-3xl font-bold text-shell-text mb-6">
+          <span class="text-shell-green">#</span> Contact
+        </h1>
       </ScrollReveal>
 
       <ScrollReveal client:idle delay={0.2}>
-        <p class="text-xl text-gray-600 mb-6">
-          Vous pouvez nous contacter par le formulaire ci-dessous, par email ou rejoindre directement notre serveur Discord.
+        <p class="text-shell-muted mb-8 leading-relaxed">
+          Contactez-nous par le formulaire ci-dessous, par email ou rejoignez directement notre serveur Discord.
         </p>
       </ScrollReveal>
 
       <ScrollReveal client:idle delay={0.3}>
-        <div class="mb-12 flex flex-col sm:flex-row gap-4">
+        <div class="mb-10 flex flex-col sm:flex-row gap-3">
           <a
             href="http://discord.gg/gSq43BvhYg"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-1 px-6 py-4 bg-indigo-600 text-white rounded-lg font-medium text-center hover:bg-indigo-700 transition-colors"
+            class="flex-1 px-5 py-3 bg-shell-green text-shell-bg font-medium text-center hover:bg-shell-green-bright transition-colors text-sm"
           >
-            Rejoindre notre Discord
+            <span class="opacity-60 mr-1">$</span> Rejoindre notre Discord
           </a>
           <a
             href="mailto:contact@protech.sh"
-            class="flex-1 px-6 py-4 border border-gray-300 rounded-lg text-gray-900 font-medium text-center hover:bg-gray-100 transition-colors"
+            class="flex-1 px-5 py-3 border border-shell-border text-shell-text font-medium text-center hover:border-shell-green hover:text-shell-green transition-colors text-sm"
           >
-            Envoyer un email
+            <span class="text-shell-green mr-1">&gt;</span> Envoyer un email
           </a>
         </div>
       </ScrollReveal>
 
       <ScrollReveal client:idle delay={0.4}>
-        <ContactForm />
+        <div class="border border-shell-border bg-shell-surface">
+          <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-shell-border bg-shell-bg">
+            <span class="w-2.5 h-2.5 rounded-full bg-shell-red"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-shell-yellow"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-shell-green"></span>
+            <span class="ml-2 text-xs text-shell-muted">formulaire de contact</span>
+          </div>
+          <div class="p-6">
+            <ContactForm />
+          </div>
+        </div>
       </ScrollReveal>
+
     </section>
   </main>
   <Footer />

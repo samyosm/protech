@@ -16,13 +16,19 @@ import { SITE } from "../config/site.mjs";
     <section class="max-w-4xl mx-auto px-4 py-20">
 
       <ScrollReveal client:idle>
-        <h1 class="text-5xl font-bold text-gray-900 mb-4">À propos de Protech</h1>
+        <p class="text-shell-muted text-sm mb-2">
+          <span class="text-shell-green">visitor@protech</span>:<span class="text-shell-blue">~</span>$ cat about.md
+        </p>
+        <h1 class="text-3xl font-bold text-shell-text mb-4">
+          <span class="text-shell-green">#</span> À propos de Protech
+        </h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-12">
-          Protech est un club étudiant qui réunit des étudiant·e·s passionné·e·s par la programmation et la technologie.
-          Notre objectif est d’apprendre, de créer et de partager à travers des projets, ateliers, compétitions et événements communautaires.
+        <p class="text-shell-muted mb-12 leading-relaxed max-w-2xl">
+          Protech réunit des étudiant·e·s passionné·e·s par la programmation et la technologie.
+          Notre objectif est d'apprendre, de créer et de partager à travers des projets,
+          ateliers, compétitions et événements communautaires.
         </p>
       </ScrollReveal>
 
@@ -31,43 +37,33 @@ import { SITE } from "../config/site.mjs";
         <ScrollReveal client:load delay={0.2}>
           <h2>Nos axes principaux</h2>
           <ul>
-            <li><strong>Centre d’aide</strong> - Un espace pour poser vos questions et recevoir du soutien de la communauté.</li>
-            <li><strong>Ateliers</strong> - Des sessions pratiques pour découvrir de nouvelles technologies et développer des compétences concrètes.</li>
-            <li><strong>Projets</strong> - Réalisation de projets concrets en équipe pour expérimenter et apprendre en construisant.</li>
-            <li><strong>Compétitions</strong> - Participation à des hackathons et défis pour se dépasser et mettre ses compétences à l’épreuve.</li>
-            <li><strong>Communauté</strong> - Une communauté inclusive qui partage, collabore et évolue ensemble.</li>
-            <li><strong>Exploration</strong> - Découverte de domaines variés : électronique, robotique, programmation avancée, et plus encore.</li>
+            <li><strong>Centre d'aide</strong> — Un espace pour poser vos questions et recevoir du soutien de la communauté.</li>
+            <li><strong>Ateliers</strong> — Des sessions pratiques pour découvrir de nouvelles technologies et développer des compétences concrètes.</li>
+            <li><strong>Projets</strong> — Réalisation de projets concrets en équipe pour expérimenter et apprendre en construisant.</li>
+            <li><strong>Compétitions</strong> — Participation à des hackathons et défis pour se dépasser et mettre ses compétences à l'épreuve.</li>
+            <li><strong>Communauté</strong> — Une communauté inclusive qui partage, collabore et évolue ensemble.</li>
+            <li><strong>Exploration</strong> — Découverte de domaines variés : électronique, robotique, programmation avancée, et plus encore.</li>
           </ul>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.4}>
           <h2>Comment participer</h2>
           <ol>
-            <li>
-              <strong>Rejoindre la communauté</strong> - Accédez au Discord et suivez nos réseaux sociaux pour rester informé·e des activités.
-            </li>
-            <li>
-              <strong>Participer aux ateliers</strong> - Inscrivez-vous aux ateliers proposés pour découvrir et pratiquer de nouvelles compétences.
-            </li>
-            <li>
-              <strong>Contribuer aux projets</strong> - Rejoignez des équipes pour réaliser des projets collectifs et expérimenter de nouvelles idées.
-            </li>
-            <li>
-              <strong>Prendre part aux compétitions</strong> - Défiez-vous et testez vos compétences dans des concours internes ou externes.
-            </li>
+            <li><strong>Rejoindre la communauté</strong> — Accédez au Discord et suivez nos réseaux sociaux pour rester informé·e des activités.</li>
+            <li><strong>Participer aux ateliers</strong> — Inscrivez-vous aux ateliers proposés pour pratiquer de nouvelles compétences.</li>
+            <li><strong>Contribuer aux projets</strong> — Rejoignez des équipes pour réaliser des projets collectifs.</li>
+            <li><strong>Prendre part aux compétitions</strong> — Défiez-vous dans des concours internes ou externes.</li>
           </ol>
         </ScrollReveal>
 
         <ScrollReveal client:load delay={0.6}>
           <h2>Ressources et outils</h2>
-          <p>
-            Pour vous accompagner, Protech met à disposition :
-          </p>
+          <p>Pour vous accompagner, Protech met à disposition :</p>
           <ul>
-            <li>Un centre d’aide accessible à tout moment sur Discord.</li>
+            <li>Un centre d'aide accessible à tout moment sur Discord.</li>
             <li>Des guides, tutoriels et documents pour vos projets et ateliers.</li>
             <li>Des espaces de collaboration pour travailler en équipe.</li>
-            <li>Des ressources pour explorer la programmation, l’électronique et la robotique.</li>
+            <li>Des ressources pour explorer la programmation, l'électronique et la robotique.</li>
           </ul>
         </ScrollReveal>
 

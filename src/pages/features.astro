@@ -14,25 +14,28 @@ import { SITE } from "../config/site.mjs";
 >
   <Header />
   <main id="main-content" role="main">
-    <section class="max-w-6xl mx-auto px-4 py-20">
+    <section class="max-w-6xl mx-auto px-4 pt-16 pb-4">
 
       <ScrollReveal client:idle>
-        <h1 class="text-5xl font-bold text-gray-900 mb-4">
-          Ce que nous faisons
+        <p class="text-shell-muted text-sm mb-2">
+          <span class="text-shell-green">visitor@protech</span>:<span class="text-shell-blue">~</span>$ protech --list
+        </p>
+        <h1 class="text-3xl font-bold text-shell-text mb-4">
+          <span class="text-shell-green">#</span> Ce que nous faisons
         </h1>
       </ScrollReveal>
 
       <ScrollReveal client:load delay={0.1}>
-        <p class="text-xl text-gray-600 mb-12">
-          Protech est un club étudiant qui propose des ateliers, des projets,
-          des compétitions et une communauté inclusive pour apprendre, créer
-          et expérimenter en programmation et technologie.
+        <p class="text-shell-muted mb-4 max-w-2xl leading-relaxed">
+          Protech propose des ateliers, des projets, des compétitions et une communauté inclusive
+          pour apprendre, créer et expérimenter en programmation et technologie.
         </p>
       </ScrollReveal>
 
-      <FeaturesComponent />
-
     </section>
+
+    <FeaturesComponent />
+
   </main>
   <Footer />
 </Layout>

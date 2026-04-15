@@ -4,99 +4,143 @@ import { Icon } from "astro-icon/components";
 ---
 
 <section id="features" class="max-w-6xl mx-auto px-4 py-20">
-  <ScrollReveal client:idle delay={0.1}>
-    <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">
-      Ce que nous faisons
-    </h2>
-  </ScrollReveal>
+	<ScrollReveal client:idle delay={0.1}>
+		<p class="text-shell-muted text-sm mb-2">
+			<span class="text-shell-green">visitor@protech</span>:<span class="text-shell-blue">~</span>$ protech --list
+		</p>
+		<h2 class="text-2xl md:text-3xl font-bold text-shell-text mb-12">
+			<span class="text-shell-green">#</span> Ce que nous faisons
+		</h2>
+	</ScrollReveal>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-shell-border">
 
-    <!-- Centre d'aide -->
-    <ScrollReveal client:idle delay={0.2} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:lifebuoy" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Centre d’aide</h3>
-        <p class="text-gray-600">
-          Un espace d’entraide où les étudiant·e·s peuvent poser leurs questions
-          en programmation et en technologie et recevoir du soutien de la
-          communauté.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Centre d'aide -->
+		<ScrollReveal client:idle delay={0.2} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--help</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:lifebuoy" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Centre d'aide</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Un espace d'entraide où les étudiant·e·s peuvent poser leurs questions
+					en programmation et en technologie et recevoir du soutien de la communauté.
+				</p>
+			</div>
+		</ScrollReveal>
 
-    <!-- Ateliers -->
-    <ScrollReveal client:idle delay={0.3} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:school" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ateliers</h3>
-        <p class="text-gray-600">
-          Des ateliers pratiques pour apprendre de nouvelles notions,
-          découvrir des outils et développer des compétences concrètes,
-          peu importe ton niveau.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Ateliers -->
+		<ScrollReveal client:idle delay={0.3} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--workshops</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:school" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Ateliers</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Des ateliers pratiques pour apprendre de nouvelles notions,
+					découvrir des outils et développer des compétences concrètes,
+					peu importe ton niveau.
+				</p>
+			</div>
+		</ScrollReveal>
 
-    <!-- Projets -->
-    <ScrollReveal client:idle delay={0.4} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:code" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Projets</h3>
-        <p class="text-gray-600">
-          La réalisation de projets concrets en équipe pour appliquer ses
-          connaissances, expérimenter et apprendre en construisant.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Projets -->
+		<ScrollReveal client:idle delay={0.4} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--projects</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:code" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Projets</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					La réalisation de projets concrets en équipe pour appliquer ses
+					connaissances, expérimenter et apprendre en construisant.
+				</p>
+			</div>
+		</ScrollReveal>
 
-    <!-- Compétitions -->
-    <ScrollReveal client:idle delay={0.5} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:trophy" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Compétitions</h3>
-        <p class="text-gray-600">
-          Participation à des compétitions, hackathons et défis technologiques
-          pour se dépasser et mettre ses compétences à l’épreuve.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Compétitions -->
+		<ScrollReveal client:idle delay={0.5} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--compete</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:trophy" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Compétitions</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Participation à des compétitions, hackathons et défis technologiques
+					pour se dépasser et mettre ses compétences à l'épreuve.
+				</p>
+			</div>
+		</ScrollReveal>
 
-    <!-- Communauté -->
-    <ScrollReveal client:idle delay={0.6} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:users" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Communauté</h3>
-        <p class="text-gray-600">
-          Une communauté inclusive d’étudiant·e·s passionné·e·s qui partagent,
-          collaborent et évoluent ensemble dans un environnement stimulant.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Communauté -->
+		<ScrollReveal client:idle delay={0.6} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--community</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:users" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Communauté</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Une communauté inclusive d'étudiant·e·s passionné·e·s qui partagent,
+					collaborent et évoluent ensemble dans un environnement stimulant.
+				</p>
+			</div>
+		</ScrollReveal>
 
-    <!-- Exploration -->
-    <ScrollReveal client:idle delay={0.7} scale={true}>
-      <div class="p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-          <Icon name="tabler:rocket" class="w-6 h-6 text-gray-900" aria-hidden="true" />
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Exploration</h3>
-        <p class="text-gray-600">
-          Découverte de domaines variés en technologie : programmation,
-          électronique, robotique et bien plus, selon les intérêts du groupe.
-        </p>
-      </div>
-    </ScrollReveal>
+		<!-- Exploration -->
+		<ScrollReveal client:idle delay={0.7} scale={true}>
+			<div class="bg-shell-surface hover:bg-shell-hover transition-colors group p-6 h-full">
+				<div class="flex items-center gap-1.5 mb-5 text-xs text-shell-muted">
+					<span class="w-2 h-2 rounded-full bg-shell-red"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-yellow"></span>
+					<span class="w-2 h-2 rounded-full bg-shell-green"></span>
+					<span class="ml-1 text-shell-blue">protech</span>
+					<span>--explore</span>
+				</div>
+				<div class="text-shell-green mb-3 group-hover:text-shell-green-bright transition-colors">
+					<Icon name="tabler:rocket" class="w-5 h-5" aria-hidden="true" />
+				</div>
+				<h3 class="text-xs font-semibold text-shell-text uppercase tracking-widest mb-3">Exploration</h3>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Découverte de domaines variés en technologie : programmation,
+					électronique, robotique et bien plus, selon les intérêts du groupe.
+				</p>
+			</div>
+		</ScrollReveal>
 
-  </div>
+	</div>
 </section>

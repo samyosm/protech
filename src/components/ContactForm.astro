@@ -1,303 +1,240 @@
 ---
 import { SITE } from "../config/site.mjs";
 
-// Web3Forms integration
-// Get your access key from https://web3forms.com
 const web3formsAccessKey = SITE.web3formsAccessKey || "";
 ---
 
 <form
-  id="contact-form"
-  class="space-y-6"
-  aria-label="Formulaire de contact"
-  novalidate
-  action="https://api.web3forms.com/submit"
-  method="POST"
+	id="contact-form"
+	class="space-y-5"
+	aria-label="Formulaire de contact"
+	novalidate
+	action="https://api.web3forms.com/submit"
+	method="POST"
 >
-  <!-- Web3Forms Access Key (hidden) -->
-  {web3formsAccessKey && (
-    <input type="hidden" name="access_key" value={web3formsAccessKey} />
-  )}
+	{web3formsAccessKey && (
+		<input type="hidden" name="access_key" value={web3formsAccessKey} />
+	)}
+	<input type="hidden" name="subject" value="Nouvelle soumission de formulaire de contact" />
+	<input type="hidden" name="redirect" value="false" />
+	<input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
 
-  <!-- Web3Forms Subject -->
-  <input type="hidden" name="subject" value="Nouvelle soumission de formulaire de contact" />
+	<!-- Success -->
+	<div
+		id="success-message"
+		class="hidden p-4 bg-shell-surface border border-shell-green/50 text-shell-green text-sm"
+		role="alert"
+		aria-live="polite"
+	>
+		<p class="font-medium"><span class="opacity-60">$</span> Merci pour votre message !</p>
+		<p class="text-shell-muted mt-1">Nous vous répondrons dès que possible.</p>
+	</div>
 
-  <!-- Web3Forms redirect (optional - prevents page reload) -->
-  <input type="hidden" name="redirect" value="false" />
+	<!-- Error -->
+	<div
+		id="error-message"
+		class="hidden p-4 bg-shell-surface border border-shell-red/50 text-shell-red text-sm"
+		role="alert"
+		aria-live="assertive"
+	>
+		<p class="font-medium" id="error-text"></p>
+	</div>
 
-  <!-- Honeypot spam protection -->
-  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+	<!-- Nom -->
+	<div>
+		<label for="name" class="block text-xs text-shell-muted mb-2 uppercase tracking-widest">
+			<span class="text-shell-green">$</span> from_name
+			<span class="text-shell-red ml-1" aria-label="obligatoire">*</span>
+		</label>
+		<input
+			type="text"
+			id="name"
+			name="from_name"
+			class="w-full px-4 py-3 bg-shell-surface border border-shell-border text-shell-text placeholder:text-shell-muted/50 focus:border-shell-green focus:outline-none transition-colors text-sm"
+			required
+			aria-required="true"
+			aria-describedby="name-error"
+			placeholder="Votre nom"
+			autocomplete="name"
+		/>
+		<span
+			id="name-error"
+			class="mt-1.5 text-xs text-shell-red hidden"
+			role="alert"
+			aria-live="polite"
+		></span>
+	</div>
 
-  <!-- Success Message -->
-  <div
-    id="success-message"
-    class="hidden p-4 bg-green-50 border border-green-200 rounded-lg text-green-800"
-    role="alert"
-    aria-live="polite"
-  >
-    <p class="font-medium">Merci pour votre message !</p>
-    <p class="text-sm mt-1">Nous vous répondrons dès que possible.</p>
-  </div>
+	<!-- Email -->
+	<div>
+		<label for="email" class="block text-xs text-shell-muted mb-2 uppercase tracking-widest">
+			<span class="text-shell-green">$</span> from_email
+			<span class="text-shell-red ml-1" aria-label="obligatoire">*</span>
+		</label>
+		<input
+			type="email"
+			id="email"
+			name="from_email"
+			class="w-full px-4 py-3 bg-shell-surface border border-shell-border text-shell-text placeholder:text-shell-muted/50 focus:border-shell-green focus:outline-none transition-colors text-sm"
+			required
+			aria-required="true"
+			aria-describedby="email-error"
+			placeholder="exemple@domaine.com"
+			autocomplete="email"
+		/>
+		<span
+			id="email-error"
+			class="mt-1.5 text-xs text-shell-red hidden"
+			role="alert"
+			aria-live="polite"
+		></span>
+	</div>
 
-  <!-- Error Message -->
-  <div
-    id="error-message"
-    class="hidden p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
-    role="alert"
-    aria-live="assertive"
-  >
-    <p class="font-medium" id="error-text"></p>
-  </div>
+	<!-- Message -->
+	<div>
+		<label for="message" class="block text-xs text-shell-muted mb-2 uppercase tracking-widest">
+			<span class="text-shell-green">$</span> message
+			<span class="text-shell-red ml-1" aria-label="obligatoire">*</span>
+		</label>
+		<textarea
+			id="message"
+			name="message"
+			rows="6"
+			class="w-full px-4 py-3 bg-shell-surface border border-shell-border text-shell-text placeholder:text-shell-muted/50 focus:border-shell-green focus:outline-none transition-colors resize-none text-sm"
+			required
+			aria-required="true"
+			aria-describedby="message-error"
+			placeholder="Écrivez votre message ici..."></textarea>
+		<span
+			id="message-error"
+			class="mt-1.5 text-xs text-shell-red hidden"
+			role="alert"
+			aria-live="polite"
+		></span>
+	</div>
 
-  <!-- Nom Field -->
-  <div>
-    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
-      Nom <span class="text-red-600" aria-label="obligatoire">*</span>
-    </label>
-    <input
-      type="text"
-      id="name"
-      name="from_name"
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none transition-colors"
-      required
-      aria-required="true"
-      aria-describedby="name-error"
-      placeholder="Votre nom"
-      autocomplete="name"
-    />
-    <span
-      id="name-error"
-      class="mt-1 text-sm text-red-600 hidden"
-      role="alert"
-      aria-live="polite"
-    ></span>
-  </div>
-
-  <!-- Email Field -->
-  <div>
-    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-      Email <span class="text-red-600" aria-label="obligatoire">*</span>
-    </label>
-    <input
-      type="email"
-      id="email"
-      name="from_email"
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none transition-colors"
-      required
-      aria-required="true"
-      aria-describedby="email-error"
-      placeholder="exemple@domaine.com"
-      autocomplete="email"
-    />
-    <span
-      id="email-error"
-      class="mt-1 text-sm text-red-600 hidden"
-      role="alert"
-      aria-live="polite"
-    ></span>
-  </div>
-
-  <!-- Message Field -->
-  <div>
-    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-      Message <span class="text-red-600" aria-label="obligatoire">*</span>
-    </label>
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black outline-none transition-colors resize-none"
-      required
-      aria-required="true"
-      aria-describedby="message-error"
-      placeholder="Écrivez votre message ici..."
-    ></textarea>
-    <span
-      id="message-error"
-      class="mt-1 text-sm text-red-600 hidden"
-      role="alert"
-      aria-live="polite"
-    ></span>
-  </div>
-
-  <!-- Submit Button -->
-  <button
-    type="submit"
-    id="submit-button"
-    class="w-full px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    <span id="submit-text">Envoyer le message</span>
-    <span id="submit-loading" class="hidden">Envoi...</span>
-  </button>
+	<!-- Submit -->
+	<button
+		type="submit"
+		id="submit-button"
+		class="w-full px-6 py-3 bg-shell-green text-shell-bg hover:bg-shell-green-bright transition-colors font-medium text-sm focus:outline-none focus:ring-1 focus:ring-shell-green focus:ring-offset-1 focus:ring-offset-shell-bg disabled:opacity-40 disabled:cursor-not-allowed"
+	>
+		<span id="submit-text"><span class="opacity-60 mr-1">$</span> Envoyer le message</span>
+		<span id="submit-loading" class="hidden">Envoi en cours...</span>
+	</button>
 </form>
 
 <script>
-  const form = document.getElementById("contact-form");
-  const submitButton = document.getElementById("submit-button");
-  const submitText = document.getElementById("submit-text");
-  const submitLoading = document.getElementById("submit-loading");
-  const successMessage = document.getElementById("success-message");
-  const errorMessage = document.getElementById("error-message");
-  const errorText = document.getElementById("error-text");
+	const form = document.getElementById("contact-form") as HTMLFormElement;
+	const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
+	const submitText = document.getElementById("submit-text")!;
+	const submitLoading = document.getElementById("submit-loading")!;
+	const successMessage = document.getElementById("success-message")!;
+	const errorMessage = document.getElementById("error-message")!;
+	const errorText = document.getElementById("error-text")!;
 
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-  const nameError = document.getElementById("name-error");
-  const emailError = document.getElementById("email-error");
-  const messageError = document.getElementById("message-error");
+	const nameInput = document.getElementById("name") as HTMLInputElement;
+	const emailInput = document.getElementById("email") as HTMLInputElement;
+	const messageInput = document.getElementById("message") as HTMLTextAreaElement;
+	const nameError = document.getElementById("name-error")!;
+	const emailError = document.getElementById("email-error")!;
+	const messageError = document.getElementById("message-error")!;
 
-  function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
+	function validateEmail(email: string) {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+	}
 
-  function showFieldError(field, errorElement, message) {
-    field.setAttribute("aria-invalid", "true");
-    field.classList.add("border-red-500");
-    errorElement.textContent = message;
-    errorElement.classList.remove("hidden");
-  }
+	function showFieldError(field: HTMLElement, errorEl: HTMLElement, msg: string) {
+		field.setAttribute("aria-invalid", "true");
+		field.classList.add("border-shell-red");
+		field.classList.remove("border-shell-border");
+		errorEl.textContent = msg;
+		errorEl.classList.remove("hidden");
+	}
 
-  function clearFieldError(field, errorElement) {
-    field.setAttribute("aria-invalid", "false");
-    field.classList.remove("border-red-500");
-    errorElement.classList.add("hidden");
-    errorElement.textContent = "";
-  }
+	function clearFieldError(field: HTMLElement, errorEl: HTMLElement) {
+		field.setAttribute("aria-invalid", "false");
+		field.classList.remove("border-shell-red");
+		field.classList.add("border-shell-border");
+		errorEl.classList.add("hidden");
+		errorEl.textContent = "";
+	}
 
-  function hideAllMessages() {
-    successMessage.classList.add("hidden");
-    errorMessage.classList.add("hidden");
-  }
+	function setLoading(loading: boolean) {
+		submitButton.disabled = loading;
+		submitText.classList.toggle("hidden", loading);
+		submitLoading.classList.toggle("hidden", !loading);
+	}
 
-  function setLoading(loading) {
-    submitButton.disabled = loading;
-    if (loading) {
-      submitText.classList.add("hidden");
-      submitLoading.classList.remove("hidden");
-    } else {
-      submitText.classList.remove("hidden");
-      submitLoading.classList.add("hidden");
-    }
-  }
+	nameInput.addEventListener("blur", () => {
+		const v = nameInput.value.trim();
+		if (!v) showFieldError(nameInput, nameError, "Le nom est obligatoire");
+		else if (v.length < 2) showFieldError(nameInput, nameError, "Au moins 2 caractères");
+		else clearFieldError(nameInput, nameError);
+	});
 
-  // Real-time validation
-  nameInput.addEventListener("blur", () => {
-    const value = nameInput.value.trim();
-    if (!value) {
-      showFieldError(nameInput, nameError, "Le nom est obligatoire");
-    } else if (value.length < 2) {
-      showFieldError(nameInput, nameError, "Le nom doit contenir au moins 2 caractères");
-    } else {
-      clearFieldError(nameInput, nameError);
-    }
-  });
+	emailInput.addEventListener("blur", () => {
+		const v = emailInput.value.trim();
+		if (!v) showFieldError(emailInput, emailError, "L'email est obligatoire");
+		else if (!validateEmail(v)) showFieldError(emailInput, emailError, "Email invalide");
+		else clearFieldError(emailInput, emailError);
+	});
 
-  emailInput.addEventListener("blur", () => {
-    const value = emailInput.value.trim();
-    if (!value) {
-      showFieldError(emailInput, emailError, "L'email est obligatoire");
-    } else if (!validateEmail(value)) {
-      showFieldError(emailInput, emailError, "Veuillez saisir un email valide");
-    } else {
-      clearFieldError(emailInput, emailError);
-    }
-  });
+	messageInput.addEventListener("blur", () => {
+		const v = messageInput.value.trim();
+		if (!v) showFieldError(messageInput, messageError, "Le message est obligatoire");
+		else if (v.length < 10) showFieldError(messageInput, messageError, "Au moins 10 caractères");
+		else clearFieldError(messageInput, messageError);
+	});
 
-  messageInput.addEventListener("blur", () => {
-    const value = messageInput.value.trim();
-    if (!value) {
-      showFieldError(messageInput, messageError, "Le message est obligatoire");
-    } else if (value.length < 10) {
-      showFieldError(messageInput, messageError, "Le message doit contenir au moins 10 caractères");
-    } else {
-      clearFieldError(messageInput, messageError);
-    }
-  });
+	const accessKeyInput = form.querySelector('input[name="access_key"]') as HTMLInputElement | null;
+	const hasAccessKey = !!accessKeyInput?.value.trim();
 
-  const accessKeyInput = form.querySelector('input[name="access_key"]');
-  const hasAccessKey = accessKeyInput && accessKeyInput.value.trim() !== "";
+	form.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		successMessage.classList.add("hidden");
+		errorMessage.classList.add("hidden");
 
-  if (!hasAccessKey) {
-    const warningDiv = document.createElement("div");
-    warningDiv.className = "p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-sm";
-    warningDiv.innerHTML = `
-      <p class="font-medium mb-1">⚠️ Web3Forms non configuré</p>
-      <p>Veuillez ajouter votre clé Web3Forms dans <code class="bg-yellow-100 px-1 rounded">src/config/site.mjs</code>. Obtenez votre clé sur <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer" class="underline">web3forms.com</a></p>
-    `;
-    form.insertBefore(warningDiv, form.firstChild);
-  }
+		if (!hasAccessKey) {
+			errorText.textContent = "Le formulaire n'est pas configuré.";
+			errorMessage.classList.remove("hidden");
+			return;
+		}
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    hideAllMessages();
+		clearFieldError(nameInput, nameError);
+		clearFieldError(emailInput, emailError);
+		clearFieldError(messageInput, messageError);
 
-    if (!hasAccessKey) {
-      errorText.textContent = "Le formulaire n'est pas configuré. Veuillez contacter l'administrateur.";
-      errorMessage.classList.remove("hidden");
-      errorMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      return;
-    }
+		let valid = true;
+		if (!nameInput.value.trim()) { showFieldError(nameInput, nameError, "Le nom est obligatoire"); valid = false; }
+		if (!emailInput.value.trim()) { showFieldError(emailInput, emailError, "L'email est obligatoire"); valid = false; }
+		else if (!validateEmail(emailInput.value.trim())) { showFieldError(emailInput, emailError, "Email invalide"); valid = false; }
+		if (!messageInput.value.trim()) { showFieldError(messageInput, messageError, "Le message est obligatoire"); valid = false; }
+		else if (messageInput.value.trim().length < 10) { showFieldError(messageInput, messageError, "Au moins 10 caractères"); valid = false; }
 
-    clearFieldError(nameInput, nameError);
-    clearFieldError(emailInput, emailError);
-    clearFieldError(messageInput, messageError);
+		if (!valid) {
+			const first = form.querySelector('[aria-invalid="true"]') as HTMLElement | null;
+			first?.focus();
+			return;
+		}
 
-    let isValid = true;
-
-    if (!nameInput.value.trim()) {
-      showFieldError(nameInput, nameError, "Le nom est obligatoire");
-      isValid = false;
-    }
-
-    if (!emailInput.value.trim()) {
-      showFieldError(emailInput, emailError, "L'email est obligatoire");
-      isValid = false;
-    } else if (!validateEmail(emailInput.value.trim())) {
-      showFieldError(emailInput, emailError, "Veuillez saisir un email valide");
-      isValid = false;
-    }
-
-    if (!messageInput.value.trim()) {
-      showFieldError(messageInput, messageError, "Le message est obligatoire");
-      isValid = false;
-    } else if (messageInput.value.trim().length < 10) {
-      showFieldError(messageInput, messageError, "Le message doit contenir au moins 10 caractères");
-      isValid = false;
-    }
-
-    if (!isValid) {
-      const firstError = form.querySelector('[aria-invalid="true"]');
-      if (firstError) firstError.focus();
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        successMessage.classList.remove("hidden");
-        form.reset();
-        successMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      } else {
-        errorText.textContent = data.message || "Échec de l'envoi. Veuillez réessayer.";
-        errorMessage.classList.remove("hidden");
-        errorMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
-    } catch {
-      errorText.textContent = "Erreur réseau. Veuillez vérifier votre connexion et réessayer.";
-      errorMessage.classList.remove("hidden");
-      errorMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    } finally {
-      setLoading(false);
-    }
-  });
+		setLoading(true);
+		try {
+			const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(form) });
+			const data = await res.json();
+			if (res.ok && data.success) {
+				successMessage.classList.remove("hidden");
+				form.reset();
+				successMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+			} else {
+				errorText.textContent = data.message || "Échec de l'envoi. Veuillez réessayer.";
+				errorMessage.classList.remove("hidden");
+			}
+		} catch {
+			errorText.textContent = "Erreur réseau. Vérifiez votre connexion.";
+			errorMessage.classList.remove("hidden");
+		} finally {
+			setLoading(false);
+		}
+	});
 </script>

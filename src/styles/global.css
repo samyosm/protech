@@ -1,26 +1,92 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+	--font-family-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace,
+		"Courier New", monospace;
+
+	--color-shell-bg: #0d1117;
+	--color-shell-surface: #161b22;
+	--color-shell-hover: #21262d;
+	--color-shell-border: #30363d;
+	--color-shell-text: #e6edf3;
+	--color-shell-muted: #8b949e;
+	--color-shell-green: #3fb950;
+	--color-shell-green-bright: #4ade80;
+	--color-shell-blue: #58a6ff;
+	--color-shell-red: #f85149;
+	--color-shell-yellow: #d29922;
+}
+
 /* Accessibility: Skip to content link */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
 
 .sr-only:focus {
-  position: fixed;
-  width: auto;
-  height: auto;
-  padding: 0.5rem 1rem;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
+	position: fixed;
+	width: auto;
+	height: auto;
+	padding: 0.5rem 1rem;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+	white-space: normal;
+}
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+.cursor-blink {
+	animation: cursor-blink 1.2s step-end infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track {
+	background: #0d1117;
+}
+::-webkit-scrollbar-thumb {
+	background: #30363d;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #3fb950;
+}
+
+/* Typography overrides for dark shell theme */
+.prose {
+	--tw-prose-body: #8b949e;
+	--tw-prose-headings: #e6edf3;
+	--tw-prose-lead: #8b949e;
+	--tw-prose-links: #58a6ff;
+	--tw-prose-bold: #e6edf3;
+	--tw-prose-counters: #8b949e;
+	--tw-prose-bullets: #3fb950;
+	--tw-prose-hr: #30363d;
+	--tw-prose-quotes: #e6edf3;
+	--tw-prose-quote-borders: #3fb950;
+	--tw-prose-captions: #8b949e;
+	--tw-prose-code: #3fb950;
+	--tw-prose-pre-code: #e6edf3;
+	--tw-prose-pre-bg: #161b22;
+	--tw-prose-th-borders: #30363d;
+	--tw-prose-td-borders: #30363d;
 }

@@ -12,6 +12,7 @@ export default defineConfig({
 	site: SITE.url,
 	redirects: {
 		"/pont": "https://forms.gle/Wpcib38dzGfqZNrh6",
+		"/gala": "https://forms.office.com/r/9KcBSgy6Az",
 	},
 	integrations: [
 		react(),

@@ -3,105 +3,100 @@ import { Icon } from "astro-icon/components";
 ---
 
 <footer
-  id="contact"
-  class="w-full py-12 px-4 border-t border-gray-200 bg-white"
-  role="contentinfo"
+	id="contact"
+	class="w-full py-12 px-4 border-t border-shell-border bg-shell-surface"
+	role="contentinfo"
 >
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
+	<div class="max-w-6xl mx-auto">
+		<div class="grid md:grid-cols-3 gap-10 mb-10">
 
-      <!-- Protech -->
-      <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Protech</h2>
-        <p class="text-gray-600">
-          Protech est un club étudiant dédié à la programmation et à la
-          technologie, axé sur les projets, les ateliers et l’entraide entre
-          étudiant·e·s.
-        </p>
-      </div>
+			<!-- Protech -->
+			<div>
+				<p class="text-xs text-shell-muted mb-3">
+					<span class="text-shell-green">$</span> cat about.txt
+				</p>
+				<h2 class="text-sm font-semibold text-shell-text uppercase tracking-widest mb-3">Protech</h2>
+				<p class="text-shell-muted text-sm leading-relaxed">
+					Club étudiant dédié à la programmation et à la technologie,
+					axé sur les projets, les ateliers et l'entraide entre étudiant·e·s.
+				</p>
+			</div>
 
-      <!-- Navigation -->
-      <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Navigation</h2>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="/"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Accueil
-            </a>
-          </li>
-          <li>
-            <a
-              href="/#features"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Ce que nous faisons
-            </a>
-          </li>
-          <li>
-            <a
-              href="/contact"
-              class="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Nous contacter
-            </a>
-          </li>
-        </ul>
-      </div>
+			<!-- Navigation -->
+			<div>
+				<p class="text-xs text-shell-muted mb-3">
+					<span class="text-shell-green">$</span> ls ./pages
+				</p>
+				<h2 class="text-sm font-semibold text-shell-text uppercase tracking-widest mb-3">Navigation</h2>
+				<ul class="space-y-2">
+					<li>
+						<a href="/" class="text-sm text-shell-muted hover:text-shell-green transition-colors flex items-center gap-2">
+							<span class="text-shell-green text-xs">~/</span>accueil
+						</a>
+					</li>
+					<li>
+						<a href="/#features" class="text-sm text-shell-muted hover:text-shell-green transition-colors flex items-center gap-2">
+							<span class="text-shell-green text-xs">~/</span>features
+						</a>
+					</li>
+					<li>
+						<a href="/contact" class="text-sm text-shell-muted hover:text-shell-green transition-colors flex items-center gap-2">
+							<span class="text-shell-green text-xs">~/</span>contact
+						</a>
+					</li>
+				</ul>
+			</div>
 
-      <!-- Nous joindre -->
-      <div>
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">Nous joindre</h2>
-        <ul class="space-y-2">
+			<!-- Nous joindre -->
+			<div>
+				<p class="text-xs text-shell-muted mb-3">
+					<span class="text-shell-green">$</span> protech --socials
+				</p>
+				<h2 class="text-sm font-semibold text-shell-text uppercase tracking-widest mb-3">Nous joindre</h2>
+				<ul class="space-y-2">
+					<li>
+						<a
+							href="https://instagram.com/club.protech"
+							class="flex items-center gap-2 text-sm text-shell-muted hover:text-shell-green transition-colors"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Suivez-nous sur Instagram (nouvel onglet)"
+						>
+							<Icon name="tabler:brand-instagram" class="w-4 h-4" aria-hidden="true" />
+							@club.protech
+						</a>
+					</li>
+					<li>
+						<a
+							href="http://discord.gg/gSq43BvhYg"
+							class="flex items-center gap-2 text-sm text-shell-muted hover:text-shell-green transition-colors"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Rejoindre notre serveur Discord (nouvel onglet)"
+						>
+							<Icon name="tabler:brand-discord" class="w-4 h-4" aria-hidden="true" />
+							Discord
+						</a>
+					</li>
+					<li>
+						<a
+							href="mailto:contact@protech.sh"
+							class="flex items-center gap-2 text-sm text-shell-muted hover:text-shell-green transition-colors"
+						>
+							<Icon name="tabler:mail" class="w-4 h-4" aria-hidden="true" />
+							contact@protech.sh
+						</a>
+					</li>
+				</ul>
+			</div>
 
-          <li>
-            <a
-              href="https://instagram.com/club.protech"
-              class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Suivez-nous sur Instagram (nouvel onglet)"
-            >
-              <Icon name="tabler:brand-instagram" class="w-5 h-5" aria-hidden="true" />
-              <span>@club.protech</span>
-            </a>
-          </li>
+		</div>
 
-          <li>
-            <a
-              href="http://discord.gg/gSq43BvhYg"
-              class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Rejoindre notre serveur Discord (nouvel onglet)"
-            >
-              <Icon name="tabler:brand-discord" class="w-5 h-5" aria-hidden="true" />
-              <span>Discord</span>
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="mailto:contact@protech.sh"
-              class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <Icon name="tabler:mail" class="w-5 h-5" aria-hidden="true" />
-              <span>contact@protech.sh</span>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="pt-8 border-t border-gray-200 text-center text-gray-600">
-      <p>
-        &copy; {new Date().getFullYear()} Protech — Club étudiant de programmation
-        et technologie.
-      </p>
-    </div>
-  </div>
+		<div class="pt-6 border-t border-shell-border">
+			<p class="text-xs text-shell-muted">
+				<span class="text-shell-green">$</span>
+				echo "&copy; {new Date().getFullYear()} Protech — Club étudiant de programmation et technologie."
+			</p>
+		</div>
+	</div>
 </footer>

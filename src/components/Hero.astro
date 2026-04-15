@@ -1,37 +1,90 @@
 ---
 import ScrollReveal from "./ScrollReveal.tsx";
-import { Icon } from "astro-icon/components";
 ---
 
-<section class="max-w-6xl mx-auto px-4 py-20 md:py-32 text-center" aria-labelledby="hero-heading">
-  <ScrollReveal client:load>
-    <h1 id="hero-heading" class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-<span class="text-blue-500">Pro</span>grammation et <span class="text-blue-500">tech</span>nologie
-    </h1>
-  </ScrollReveal>
-  <ScrollReveal client:load delay={0.2}>
-    <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-    	Un club étudiant pour apprendre, créer et expérimenter en informatique et en technologie.
-    </p>
-  </ScrollReveal>
-  <ScrollReveal client:load delay={0.4}>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="http://discord.gg/gSq43BvhYg"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
-        aria-label="Rejoins nous sur Discord (ouvre sur Discord)"
-      >
-        <Icon name="tabler:brand-discord-filled" class="w-5 h-5" aria-hidden="true" />
-        <span>Nous rejoindre</span>
-      </a>
-      <a
-        href="/about"
-        class="inline-block px-8 py-3 bg-white text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium"
-      >
-        Découvrir le club
-      </a>
-    </div>
-  </ScrollReveal>
+<section class="max-w-6xl mx-auto px-4 py-20 md:py-32" aria-labelledby="hero-heading">
+
+	<!-- Terminal window -->
+	<ScrollReveal client:load>
+		<div class="border border-shell-border bg-shell-surface overflow-hidden max-w-3xl mx-auto">
+			<!-- Terminal chrome -->
+			<div class="flex items-center gap-1.5 px-4 py-3 border-b border-shell-border bg-shell-bg">
+				<span class="w-3 h-3 rounded-full bg-shell-red"></span>
+				<span class="w-3 h-3 rounded-full bg-shell-yellow"></span>
+				<span class="w-3 h-3 rounded-full bg-shell-green"></span>
+				<span class="ml-3 text-xs text-shell-muted">protech — bash</span>
+			</div>
+
+			<!-- Terminal body -->
+			<div class="p-6 md:p-10">
+				<ScrollReveal client:load delay={0.1}>
+					<p class="text-shell-muted text-sm mb-4">
+						<span class="text-shell-green">visitor@protech</span>
+						<span class="text-shell-muted">:</span>
+						<span class="text-shell-blue">~</span>
+						<span class="text-shell-muted">$</span>
+						<span class="text-shell-text ml-2">cat README.md</span>
+					</p>
+				</ScrollReveal>
+
+				<ScrollReveal client:load delay={0.25}>
+					<h1
+						id="hero-heading"
+						class="text-3xl md:text-5xl font-bold text-shell-text mb-4 leading-tight"
+					>
+						<span class="text-shell-blue">#</span>
+						<span class="text-shell-green"> Pro</span>grammation
+						<br />et <span class="text-shell-green">tech</span>nologie
+					</h1>
+				</ScrollReveal>
+
+				<ScrollReveal client:load delay={0.4}>
+					<p class="text-shell-muted text-base md:text-lg mb-8 max-w-xl leading-relaxed">
+						<span class="text-shell-green text-sm mr-2">&gt;</span>
+						Un club étudiant pour apprendre, créer et expérimenter en informatique et en technologie.
+					</p>
+				</ScrollReveal>
+
+				<ScrollReveal client:load delay={0.55}>
+					<p class="text-shell-muted text-sm mb-6">
+						<span class="text-shell-green">visitor@protech</span>
+						<span class="text-shell-muted">:</span>
+						<span class="text-shell-blue">~</span>
+						<span class="text-shell-muted">$</span>
+						<span class="text-shell-text ml-2">ls ./actions</span>
+					</p>
+					<p class="text-sm text-shell-text mb-8 grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-sm">
+						<span class="text-shell-blue">join</span>
+						<span class="text-shell-blue">ateliers</span>
+						<span class="text-shell-blue">projets</span>
+						<span class="text-shell-blue">concours</span>
+					</p>
+				</ScrollReveal>
+
+				<ScrollReveal client:load delay={0.7}>
+					<div class="flex flex-col sm:flex-row gap-3">
+						<a
+							href="http://discord.gg/gSq43BvhYg"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 px-6 py-2.5 bg-shell-green text-shell-bg hover:bg-shell-green-bright transition-colors font-medium text-sm"
+							aria-label="Rejoins nous sur Discord"
+						>
+							<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.003.02.014.04.03.052a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.995a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+							</svg>
+							<span class="text-shell-bg/60 mr-0.5">$</span> Nous rejoindre
+						</a>
+						<a
+							href="/about"
+							class="inline-flex items-center gap-2 px-6 py-2.5 bg-transparent text-shell-text border border-shell-border hover:border-shell-green hover:text-shell-green transition-colors text-sm"
+						>
+							<span class="text-shell-green mr-0.5">&gt;</span> Découvrir le club
+						</a>
+					</div>
+				</ScrollReveal>
+			</div>
+		</div>
+	</ScrollReveal>
+
 </section>
